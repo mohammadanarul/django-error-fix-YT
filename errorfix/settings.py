@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'apps.apps.AppsConfig',
 ]
 
 MIDDLEWARE = [
@@ -121,3 +122,45 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# Celery Configuration Options
+CELERY_BROKER_URL = 'redis://127.0.0.1:6379'
+CELERY_RESULT_BACKEND = 'redis://127.0.0.1:6379'
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TASK_SERIALIZER = 'json'
+
+'''
+    celery event run execute_from_command_line
+    # celery -A errorfix worker -l info -P eventlet
+'''
+
+
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_HOST_USER = "ican4654@gmail.com"
+EMAIL_HOST_PASSWORD = "ymbtvohocipdfwfh"
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+DEFAULT_FROM_EMAIL = "ican4654@gmail.com"
+
+# CELERY_TIMEZONE = "Australia/Tasmania"
+# CELERY_TASK_TRACK_STARTED = True
+# CELERY_TASK_TIME_LIMIT = 30 * 60
+
+'''
+CELERY_BROKER_URL = 'amqp://localhost'
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TASK_SERIALIZER = 'json'
+
+EMAIL_HOST = smtp.gmail.com
+EMAIL_HOST_USER = mdanarul7075@gmail.com
+EMAIL_HOST_PASSWORD = ydaqqzkuvbwovopf
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_BACKEND = django.core.mail.backends.smtp.EmailBackend
+DEFAULT_FROM_EMAIL = mdanarul7075@gmail.com
+
+'''
